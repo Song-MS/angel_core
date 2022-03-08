@@ -1,7 +1,6 @@
 #!/bin/bash
-sudo docker pull 127.0.0.1:5000/dbmanager:0.1
-sudo docker pull 127.0.0.1:5000/controller:0.1
-sudo docker pull 127.0.0.1:5000/bridge:0.1
+
+# docker pull 127.0.0.1:5000/:0.2
 echo "abc"
 
 # for f in 'ls uploads/*.tar'

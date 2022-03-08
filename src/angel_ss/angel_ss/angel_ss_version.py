@@ -17,15 +17,6 @@ class MinimalPublisher(Node):
         self.timer_liveness = self.create_timer(timer_period2, self.timer_callback_liveness)
         self.i = 0
 
-
-
-        self.subscription = self.create_subscription(
-            Bool,
-            '/topic/button/emr/bool',
-            self.listener_callback,
-            10)
-        self.subscription
-
     def timer_callback(self):
 
         msg = Bool()
