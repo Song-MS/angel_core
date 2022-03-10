@@ -38,7 +38,7 @@ class MinimalSubscriber(Node):
     def listener_callback(self, msg):
         db = self.client.wasp.button
         button_db = {"id" : "M30", "buttonstate" : msg.data}
-        db.insert(button_db)
+        db.insert_one(button_db)
         if msg.data == True :
             collection = self.client.wasp.updatecommands
             update_button = collection.find_one({'id' : "M30"},sort=[('updatedAt', pymongo.DESCENDING)])
