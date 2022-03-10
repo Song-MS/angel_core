@@ -37,6 +37,7 @@ class MinimalSubscriber(Node):
 
     def listener_callback(self, msg):
         db = self.client.wasp.button
+        print(msg.data)
         button_db = {"id" : "M30", "buttonstate" : msg.data}
         db.insert_one(button_db)
         if msg.data == True :
