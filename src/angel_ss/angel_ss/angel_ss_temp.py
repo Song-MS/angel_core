@@ -24,7 +24,7 @@ class MinimalSubscriber(Node):
 
     def __init__(self):
         super().__init__('angel_core')
-        subprocess.run(["chmod", "+x", "/src/angel_ss/update_command.sh"])
+        subprocess.run(["chmod", "+x", "/angel_core/src/angel_ss/update_command.sh"])
         print("angel_core is activated")
         self.client = pymongo.MongoClient('mongodb://'+MONGO_HOSTNAME+':'+MONGO_PORT)
         self.subscription = self.create_subscription(
@@ -44,7 +44,7 @@ class MinimalSubscriber(Node):
             update_button = collection.find_one({'id' : "M30"},sort=[('updatedAt', pymongo.DESCENDING)])
             print(update_button["buttonstate"])
             if update_button["buttonstate"] == True :
-                subprocess.run(["/src/angel_ss/update_command.sh", "arguments"], shell=True)
+                subprocess.run(["/angel_core/src/angel_ss/update_command.sh", "arguments"], shell=True)
     
         self.get_logger().info('I heard: "%s"' % msg.data)
 
